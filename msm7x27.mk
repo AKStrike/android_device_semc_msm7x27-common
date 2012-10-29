@@ -4,13 +4,9 @@ $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 # Extra Ringtones
 include frameworks/base/data/sounds/AudioPackageNewWave.mk
 
-# MiniCM9 theme
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x27-common/prebuilt/MiniCM9.apk:system/app/MiniCM9.apk
-
+#ISDX version
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.themeId=MiniCM9 \
-    persist.sys.themePackageName=com.darkdog.theme.minicm9
+    ro.isdx.version.id=v005
 
 # Gps / Audio
 PRODUCT_PACKAGES += \
@@ -316,6 +312,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/semc/msm7x27-common/prebuilt/hciattach:system/bin/hciattach
 
+# Apex
+PRODUCT_COPY_FILES += \
+    device/semc/msm7x27-common/prebuilt/ApexLauncher.apk:system/app/ApexLauncher.apk
+
+# Default ringtone
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.isdx.version.id=v005
 # Extra Cyanogen vendor files
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
